@@ -1,23 +1,22 @@
 ---
 
----
+// LAYOUTS
+import Layout from "../layouts/layout/index.astro"
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-	</head>
-	<body>
-		<h1 class="font-bold text-6xl font-hanken_grotesk">Getting Started</h1>
-		<button class="bg-blue-300 px-4 py-2 rounded border border-blue-400" id="click-me">Click Me</button>
-	</body>
-</html>
+// COMPONENTS
+import Header from "../components/common/header/index.astro"
+
+// ATOMS
+import HeadingOne from "../atoms/headings/one/index.astro"
+
+---
+<Layout
+	title="Home"
+>
+	<Header />
+	<HeadingOne>Getting Started</HeadingOne>
+	<button class="bg-blue-300 px-4 py-2 rounded border border-blue-400" id="click-me">Click Me</button>
+</Layout>
 <script>
 	const button = document.getElementById("click-me")
 	button.addEventListener("click", (event) => {
