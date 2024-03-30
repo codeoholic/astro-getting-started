@@ -21,6 +21,9 @@ import Header from "../components/common/header/index.astro"
 // ATOMS
 import HeadingOne from "../atoms/headings/one/index.astro"
 
+// JSX
+import HomeJSX from "../components/home/jsx/home/index"
+
 ---
 <Layout
 	title="Home"
@@ -30,6 +33,10 @@ import HeadingOne from "../atoms/headings/one/index.astro"
 	<HeadingOne>{ mempool_size }</HeadingOne>
 	<HeadingOne>Bitcoin Price</HeadingOne>
 	<HeadingOne>{ price_data_json.USD }</HeadingOne>
+	<HomeJSX
+		bitcoin_price={ price_data_json.USD }
+		client:load
+	/>
 	<button class="bg-blue-300 px-4 py-2 rounded border border-blue-400" id="click-me">Click Me</button>
 </Layout>
 <script>
