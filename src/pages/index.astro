@@ -3,8 +3,6 @@
 const mempool_data = await fetch("https://mempool.space/api/mempool")
 const price_data = await fetch("https://mempool.space/api/v1/prices")
 const price_data_json = await price_data.json()
-
-console.log( price_data_json )
 const mempool_data_json = await mempool_data.json()
 
 let mempool_size = "N/A"
