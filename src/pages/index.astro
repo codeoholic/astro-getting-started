@@ -1,5 +1,21 @@
 ---
 
+const mempool_data = await fetch("https://mempool.space/api/mempool")
+const price_data = await fetch("https://mempool.space/api/v1/prices")
+const price_data_json = await price_data.json()
+
+console.log( price_data_json )
+const mempool_data_json = await mempool_data.json()
+
+let mempool_size = "N/A"
+if( mempool_data.status === 200 ){
+
+	mempool_size = mempool_data_json.count
+
+}
+// console.log( mempool_data.status )
+// console.log( mempool_data_json )
+
 // LAYOUTS
 import Layout from "../layouts/layout/index.astro"
 
@@ -14,7 +30,10 @@ import HeadingOne from "../atoms/headings/one/index.astro"
 	title="Home"
 >
 	<Header />
-	<HeadingOne>Getting Started</HeadingOne>
+	<HeadingOne>Current transactions in mempool</HeadingOne>
+	<HeadingOne>{ mempool_size }</HeadingOne>
+	<HeadingOne>Bitcoin Price</HeadingOne>
+	<HeadingOne>{ price_data_json.USD }</HeadingOne>
 	<button class="bg-blue-300 px-4 py-2 rounded border border-blue-400" id="click-me">Click Me</button>
 </Layout>
 <script>
