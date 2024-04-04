@@ -9,10 +9,19 @@ import Header from "../components/common/header/index.astro"
 // ATOMS
 import HeadingOne from "../atoms/headings/one/index.astro"
 
+// IMPORT CONTENT
+import * as aboutMD from "../content/pages/about.md"
+import { Content as AboutContentMD } from "../content/pages/about.md"
+
+// console.log( aboutMD.Content )
+
+const { title, description } = aboutMD.frontmatter
+
 ---
 <Layout
-	title="About"
+	title={ title }
 >
 	<Header />
-	<HeadingOne>This is the about page</HeadingOne>
+	<HeadingOne>{ description }</HeadingOne>
+	<AboutContentMD />
 </Layout>
